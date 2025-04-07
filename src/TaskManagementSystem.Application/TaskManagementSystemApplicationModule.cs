@@ -1,4 +1,5 @@
 ﻿using Abp.AutoMapper;
+using Abp.FluentValidation;
 using Abp.Modules;
 using Abp.Reflection.Extensions;
 using TaskManagementSystem.Authorization;
@@ -7,7 +8,8 @@ namespace TaskManagementSystem;
 
 [DependsOn(
     typeof(TaskManagementSystemCoreModule),
-    typeof(AbpAutoMapperModule))]
+    typeof(AbpAutoMapperModule),
+    typeof(AbpFluentValidationModule))]
 public class TaskManagementSystemApplicationModule : AbpModule
 {
     public override void PreInitialize()

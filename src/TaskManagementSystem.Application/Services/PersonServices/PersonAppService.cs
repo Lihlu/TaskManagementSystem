@@ -18,14 +18,7 @@ namespace TaskManagementSystem.Services.PersonServices
 
         public async override Task<CreatePersonDto> CreateAsync(CreatePersonDto input)
         {
-            Address address = new Address
-            {
-                Street = input.AddressDto.Street,
-                City = input.AddressDto.City,
-                Province = input.AddressDto.Province,
-                PostalCode = input.AddressDto.PostalCode,
-            };
-
+            Address address = ObjectMapper.Map<Address>(input.AddressDto);
 
             await _personManager.CreatePersonAsync(input.CreateUserDto.Name,
                  input.CreateUserDto.Surname,
